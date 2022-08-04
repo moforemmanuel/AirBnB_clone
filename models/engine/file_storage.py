@@ -46,7 +46,7 @@ class FileStorage:
         """
         # print(FileStorage.__objects)
         with open(FileStorage.__file_path, 'w') as json_file:
-            json.dump({k: v.to_dict() for k, v in FileStorage.__objects.items()}, json_file, indent=4)
+            json.dump({k: v.to_dict() for k, v in FileStorage.__objects.items()}, json_file)
 
         # because save() overwrites __dict__ as to_dict(), \
         # reconvert the datetime str to obj and \
