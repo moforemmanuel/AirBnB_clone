@@ -84,3 +84,28 @@ class FileStorage:
 
         except FileNotFoundError:
             pass
+
+    def find(self, model, inst_id):
+        """
+        find instance of model wih given id
+        """
+
+        all_objs = self.all()
+        model_class = None
+        instance = None
+        for header, obj in all_objs.items():
+            model_name, obj_id = header.split(".")
+            if model_name == model:
+                # print('Model found')
+                model_class = model_name
+                if obj_id == inst_id:
+                    # print('Instance found')
+                    instance = obj
+
+                else:
+                    # print('Instance not found')
+                    continue
+            else:
+                # print('Model not found')
+                continue
+        return model_class, instance
