@@ -4,6 +4,9 @@
 File storage engine
 """
 
+# pylint:disable=invalid-name, unused-argument
+# pylint:disable=attribute-defined-outside-init
+
 import json
 from datetime import datetime
 from models.base_model import BaseModel
@@ -20,11 +23,12 @@ class FileStorage:
     __file_path: str = 'file.json'
     __objects: dict = {}
 
-    def __init__(self):
-        """
-        constructor
-        """
-        super().__init__()
+    # def __init__(self):
+    #     """
+    #     constructor
+    #     """
+    #     # super().__init__()
+    #     pass
 
     def all(self):
         """
@@ -45,30 +49,34 @@ class FileStorage:
         serializes __objects to json (in __file_path)
         """
         # print(FileStorage.__objects)
-        with open(FileStorage.__file_path, 'w') as json_file:
-            json.dump({k: v.to_dict() for k, v in FileStorage.__objects.items()}, json_file)
+        with open(FileStorage.__file_path, 'w', encoding='UTF-8') as json_file:
+            json.dump({k: v.to_dict() for k, v in
+                       FileStorage.__objects.items()}, json_file)
 
         # because save() overwrites __dict__ as to_dict(), \
         # reconvert the datetime str to obj and \
         # remove __class__
         for k, v in FileStorage.__objects.items():
-            obj_dict = v.__dict__
             for ck, cv in v.__dict__.items():
                 if ck in ('created_at', 'updated_at'):
                     v.__dict__[ck] = datetime.strptime(cv, DATE_FORMAT)
-            v.__dict__.__delitem__('__class__')
+            # v.__dict__.__delitem__('__class__') use del or pop instead
+            v.__dict__.pop('__class__')
 
     def reload(self):
         """
         deserializes the json file to __objs
         """
         try:
-            with open(FileStorage.__file_path, 'r', encoding='UTF-8') as json_file:
+            with open(FileStorage.__file_path, 'r', encoding='UTF-8') \
+                    as json_file:
                 dict_objs = json.load(json_file)
 
             if dict_objs:
                 for k, v in dict_objs.items():
-                    class_name, obj_id = k.split('.')
+                    # destructure the key to model name and object id
+                    # but use only model name
+                    class_name = k.split('.')[0]
                     for class_model in MODELS:
                         if class_model.__name__ == class_name:
                             obj = class_model(**v)
