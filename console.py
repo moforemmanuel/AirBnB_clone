@@ -100,6 +100,12 @@ class HBNBCommand(cmd.Cmd):
             else:
                 print(self.ERROR_MSGS['too_many'])
 
+    def do_destroy(self, line):
+        """
+        Deletes an instance based on the class name and id
+        """
+        pass
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
