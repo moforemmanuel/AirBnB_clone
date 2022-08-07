@@ -18,11 +18,11 @@ class User(BaseModel):
     first_name: str = ""
     last_name: str = ""
 
-    def __init__(self, *args, **kwargs):
-        """
-        constructor
-        """
-        super().__init__(*args, **kwargs)
+    # def __init__(self, *args, **kwargs):
+    #     """
+    #     constructor
+    #     """
+    #     super().__init__(*args, **kwargs)
 
 
 if __name__ == "__main__":

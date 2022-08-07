@@ -18,17 +18,17 @@ import models
 # a,b,c,d = ar[:4]
 # print(a,b,c,d)
 
-import re
-print("regex...")
-str_pat = r"^\"[\S]+\"$"
-str_pat_inner = r"[\S]+"
-tes = '"hello"'
-t = re.match(str_pat, tes)
-if (t):
-    print(tes)
-    print(re.search(str_pat_inner, tes).group())
-    print(t.group().removeprefix("\"").removesuffix("\""))
-    print(t.group().replace("\"", ""))
+# import re
+# print("regex...")
+# str_pat = r"^\"[\S]+\"$"
+# str_pat_inner = r"[\S]+"
+# tes = '"hello"'
+# t = re.match(str_pat, tes)
+# if (t):
+#     print(tes)
+#     print(re.search(str_pat_inner, tes).group())
+#     print(t.group().removeprefix("\"").removesuffix("\""))
+#     print(t.group().replace("\"", ""))
 
 # try:
 #     value = int('3.2')
@@ -114,8 +114,9 @@ if (t):
 #     instance = all_objs.pop(key_to_pop)
 # return model_class, instance
 
-from models.base_model import BaseModel
-from models.user import User
+# from models.base_model import BaseModel
+# from models.user import User
+#
+# b = BaseModel()
+# u = User()
 
-b = BaseModel()
-u = User()

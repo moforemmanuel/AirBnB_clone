@@ -13,8 +13,13 @@ import re
 import models
 from models.base_model import BaseModel
 from models.user import User
+from models.place import Place
+from models.city import City
+from models.amenity import Amenity
+from models.review import Review
+from models.state import State
 
-MODELS = [BaseModel, User]
+MODELS = [BaseModel, User, State, City, Amenity, Place, Review]
 
 
 class HBNBCommand(cmd.Cmd):
@@ -109,6 +114,7 @@ class HBNBCommand(cmd.Cmd):
                     # print(model_class, instance)
 
                     if model_class is None:
+                        # if self.str_to_class()
                         print(self.ERROR_MSGS['invalid_class'])
                     elif instance is None:
                         print(self.ERROR_MSGS['invalid_id'])

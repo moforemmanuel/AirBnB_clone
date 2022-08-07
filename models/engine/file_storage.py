@@ -11,9 +11,14 @@ import json
 from datetime import datetime
 from models.base_model import BaseModel
 from models.user import User
+from models.place import Place
+from models.city import City
+from models.amenity import Amenity
+from models.review import Review
+from models.state import State
 
+MODELS = [BaseModel, User, State, City, Amenity, Place, Review]
 DATE_FORMAT = "%Y-%m-%dT%H:%M:%S.%f"
-MODELS = [BaseModel, User]
 
 
 class FileStorage:
@@ -86,6 +91,18 @@ class FileStorage:
         except FileNotFoundError:
             pass
 
+    def str_to_class(self, model: str):
+        """
+        :return: class obj from str
+        """
+        class_obj = None
+        try:
+            if globals()[model]:
+                class_obj = globals()[model]
+        except Exception:
+            pass
+        return class_obj
+
     def find(self, model: str, inst_id: str, should_delete: bool = False):
         """
         find instance of model wih given id
@@ -118,6 +135,8 @@ class FileStorage:
                 self.save()
             else:
                 instance = all_objs.get(selected_header)
+        else:
+            model_class = self.str_to_class(model)
         return model_class, instance
 
     def delete(self, model, inst_id):
