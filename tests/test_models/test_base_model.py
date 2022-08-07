@@ -32,7 +32,8 @@ class MyTestCase(unittest.TestCase):
         self.assertIsInstance(base.created_at, datetime)
         base_2 = BaseModel(**INSTANCE_DICT)
         self.assertIsInstance(base_2, BaseModel)
-        self.assertEqual(base_2.created_at, datetime.strptime(INSTANCE_DICT['created_at'], DATE_FORMAT))
+        self.assertEqual(base_2.created_at, datetime.
+                         strptime(INSTANCE_DICT['created_at'], DATE_FORMAT))
 
     def test_of_to_dict(self):
         """
@@ -49,7 +50,6 @@ class MyTestCase(unittest.TestCase):
         base = BaseModel()
         base.save()
         self.assertIsInstance(base.updated_at, datetime)
-
 
 
 if __name__ == '__main__':
