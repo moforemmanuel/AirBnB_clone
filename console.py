@@ -12,8 +12,9 @@ import re
 
 import models
 from models.base_model import BaseModel
+from models.user import User
 
-MODELS = [BaseModel]
+MODELS = [BaseModel, User]
 
 
 class HBNBCommand(cmd.Cmd):
@@ -154,9 +155,11 @@ class HBNBCommand(cmd.Cmd):
         model_class = self.handle_input(line, 1)
         if model_class:
             obj = model_class()
-            models.storage.new(obj)
+            # models.storage.new(obj)
             obj.save()
             print(obj.id)
+        else:
+            print(self.ERROR_MSGS['invalid_class'])
 
     def do_show(self, line: str):
         """
