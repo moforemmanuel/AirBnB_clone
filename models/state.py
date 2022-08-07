@@ -13,4 +13,3 @@ class State(BaseModel):
     """
 
     name: str = ""
-

@@ -145,4 +145,3 @@ class FileStorage:
         """
 
         return self.find(model, inst_id, True)
-

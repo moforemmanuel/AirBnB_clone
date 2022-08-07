@@ -74,7 +74,8 @@ class HBNBCommand(cmd.Cmd):
             has_input = True
         return has_input
 
-    def handle_input(self, line: str, arg_len: int, should_delete: bool = False):
+    def handle_input(self, line: str, arg_len: int,
+                     should_delete: bool = False):
         """
         handler for one input operations
         """
@@ -101,7 +102,7 @@ class HBNBCommand(cmd.Cmd):
                     print(self.ERROR_MSGS['too_many'])
             return model_class
 
-        elif arg_len == 2:
+        if arg_len == 2:
             # two inputs
             # model and id
             model_class = None
@@ -110,7 +111,8 @@ class HBNBCommand(cmd.Cmd):
             if has_input:
                 if argc == 2:
                     model_name, obj_id = argv
-                    model_class, instance = models.storage.find(model_name, obj_id, should_delete)
+                    model_class, instance = models.\
+                        storage.find(model_name, obj_id, should_delete)
                     # print(model_class, instance)
 
                     if model_class is None:
@@ -129,7 +131,7 @@ class HBNBCommand(cmd.Cmd):
                     print(self.ERROR_MSGS['too_many'])
             return model_class, instance
 
-        elif arg_len == 4:
+        if arg_len == 4:
             # four inputs
             # model, id, attribute, value
             model_class = instance = attrib = value = None
@@ -143,15 +145,16 @@ class HBNBCommand(cmd.Cmd):
                     print(self.ERROR_MSGS['no_value'])
                 else:
                     model_name, obj_id, attrib, value = argv[:4]
-                    model_class, instance = models.storage.find(model_name, obj_id, should_delete)
+                    model_class, instance = models.\
+                        storage.find(model_name, obj_id, should_delete)
                     if model_class is None:
                         print(self.ERROR_MSGS['invalid_class'])
                     elif instance is None:
                         print(self.ERROR_MSGS['invalid_id'])
             return model_class, instance, attrib, value
 
-        else:
-            print('** Accepted values are 1, 2 and 4 **')
+        # else:
+        print('** Accepted values are 1, 2 and 4 **')
 
     def do_create(self, line):
         """
@@ -189,6 +192,7 @@ class HBNBCommand(cmd.Cmd):
         based or not on the class name
         """
         array = []
+        model_class = None
         if line == "":
             for header, obj in models.storage.all().items():
                 array.append(str(obj))
@@ -198,11 +202,14 @@ class HBNBCommand(cmd.Cmd):
                 for header, obj in models.storage.all().items():
                     if header.split(".")[0] == model_class.__name__:
                         array.append(str(obj))
-            else:
+            elif (not model_class) and (len(line.split(" ")) == 1):
                 print(self.ERROR_MSGS['invalid_class'])
 
         if array:
             print(array)
+        else:
+            if model_class:
+                print(self.ERROR_MSGS["invalid_id"])
 
     def do_update(self, line):
         """

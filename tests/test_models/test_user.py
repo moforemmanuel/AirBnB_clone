@@ -7,7 +7,10 @@ from models.user import User
 
 
 class MyTestCase(unittest.TestCase):
-    def test_initiation(self):
+    """
+    User test class
+    """
+    def test_init(self):
         """
         init test
         """
