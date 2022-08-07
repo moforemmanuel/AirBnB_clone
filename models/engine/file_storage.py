@@ -10,9 +10,10 @@ File storage engine
 import json
 from datetime import datetime
 from models.base_model import BaseModel
+from models.user import User
 
 DATE_FORMAT = "%Y-%m-%dT%H:%M:%S.%f"
-MODELS = [BaseModel]
+MODELS = [BaseModel, User]
 
 
 class FileStorage:
@@ -34,7 +35,7 @@ class FileStorage:
         """
         :returns: the dict __objects
         """
-        return FileStorage.__objects
+        return self.__objects
 
     def new(self, obj):
         """
@@ -49,14 +50,14 @@ class FileStorage:
         serializes __objects to json (in __file_path)
         """
         # print(FileStorage.__objects)
-        with open(FileStorage.__file_path, 'w', encoding='UTF-8') as json_file:
+        with open(self.__file_path, 'w', encoding='UTF-8') as json_file:
             json.dump({k: v.to_dict() for k, v in
-                       FileStorage.__objects.items()}, json_file, indent=4)
+                       self.__objects.items()}, json_file, indent=4)
 
         # because save() overwrites __dict__ as to_dict(), \
         # reconvert the datetime str to obj and \
         # remove __class__
-        for k, v in FileStorage.__objects.items():
+        for k, v in self.__objects.items():
             for ck, cv in v.__dict__.items():
                 if ck in ('created_at', 'updated_at'):
                     v.__dict__[ck] = datetime.strptime(cv, DATE_FORMAT)
@@ -68,7 +69,7 @@ class FileStorage:
         deserializes the json file to __objs
         """
         try:
-            with open(FileStorage.__file_path, 'r', encoding='UTF-8') \
+            with open(self.__file_path, 'r', encoding='UTF-8') \
                     as json_file:
                 dict_objs = json.load(json_file)
 
@@ -123,30 +124,6 @@ class FileStorage:
         """
          delete instance
         """
-        # all_objs = self.all()
-        # model_class = None
-        # instance = None
-        # key_to_pop = None  # popping during loop changes size
-        # for header, obj in all_objs.items():
-        #     model_name, obj_id = header.split(".")
-        #     if model_name == model:
-        #         # print('Model found')
-        #         model_class = model_name
-        #         if obj_id == inst_id:
-        #             # print('Instance found')
-        #             # instance = obj
-        #             # instance = all_objs.pop(header)
-        #             key_to_pop = header
-        #
-        #         else:
-        #             # print('Instance not found')
-        #             continue
-        #     else:
-        #         # print('Model not found')
-        #         continue
-        # if key_to_pop:
-        #     instance = all_objs.pop(key_to_pop)
-        # return model_class, instance
 
         return self.find(model, inst_id, True)
 
