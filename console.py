@@ -168,7 +168,8 @@ class HBNBCommand(cmd.Cmd):
             obj.save()
             print(obj.id)
         else:
-            print(self.ERROR_MSGS['invalid_class'])
+            if len(line.split(" ")) == 1:
+                print(self.ERROR_MSGS['invalid_class'])
 
     def do_show(self, line: str):
         """
