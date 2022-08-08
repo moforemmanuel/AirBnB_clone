@@ -44,6 +44,9 @@ class BaseModel:
             models.storage.new(self)
 
     def __str__(self):
+        """
+        str repr
+        """
         return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
 
     def save(self):
