@@ -69,22 +69,22 @@ class TestConsole(unittest.TestCase):
     def test_help(self):
         """help"""
         cli = self.create()
-        # self.assertTrue(cli.onecmd("help"))
-        self.assertEqual(cli.onecmd("help"), None)
+        self.assertTrue(cli.onecmd("help"))
+        # self.assertEqual(cli.onecmd("help"), None)
 
     def test_default(self):
         """default"""
         cli = self.create()
-        # self.assertTrue(cli.onecmd("BaseModel.all()"))
-        # self.assertTrue(cli.onecmd("BaseModel.count()"))
-        # self.assertTrue(cli.onecmd("BaseModel.show(1234)"))
-        # self.assertTrue(cli.onecmd("BaseModel.destroy(1234)"))
-        # self.assertTrue(cli.onecmd('BaseModel.update(1234, name, "mofor")'))
-        self.assertEqual(cli.onecmd("BaseModel.all()"), None)
-        self.assertEqual(cli.onecmd("BaseModel.count()"), None)
-        self.assertEqual(cli.onecmd("BaseModel.show(1234)"), None)
-        self.assertEqual(cli.onecmd("BaseModel.destroy(1234)"), None)
-        self.assertEqual(cli.onecmd('BaseModel.update(1234, name, "mofor")'), None)
+        self.assertTrue(cli.onecmd("BaseModel.all()"))
+        self.assertTrue(cli.onecmd("BaseModel.count()"))
+        self.assertTrue(cli.onecmd("BaseModel.show(1234)"))
+        self.assertTrue(cli.onecmd("BaseModel.destroy(1234)"))
+        self.assertTrue(cli.onecmd('BaseModel.update(1234, name, "mofor")'))
+        # self.assertEqual(cli.onecmd("BaseModel.all()"), None)
+        # self.assertEqual(cli.onecmd("BaseModel.count()"), None)
+        # self.assertEqual(cli.onecmd("BaseModel.show(1234)"), None)
+        # self.assertEqual(cli.onecmd("BaseModel.destroy(1234)"), None)
+        # self.assertEqual(cli.onecmd('BaseModel.update(1234, name, "mofor")'), None)
 
 
 if __name__ == '__main__':
