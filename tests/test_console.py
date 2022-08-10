@@ -61,6 +61,11 @@ class TestConsole(unittest.TestCase):
         cli = self.create()
         self.assertTrue(cli.onecmd("quit"))
 
+    def test_EOF(self):
+        """EOF"""
+        cli = self.create()
+        self.assertTrue(cli.onecmd("EOF"))
+
 
 if __name__ == '__main__':
     unittest.main()
