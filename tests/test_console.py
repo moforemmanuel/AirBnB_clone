@@ -75,6 +75,7 @@ class TestConsole(unittest.TestCase):
         """default"""
         cli = self.create()
         self.assertTrue(cli.onecmd("BaseModel.all()"))
+        self.assertTrue(cli.onecmd("BaseModel.count()"))
 
 
 if __name__ == '__main__':
