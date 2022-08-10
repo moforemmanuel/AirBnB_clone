@@ -78,6 +78,7 @@ class TestConsole(unittest.TestCase):
         self.assertTrue(cli.onecmd("BaseModel.count()"))
         self.assertTrue(cli.onecmd("BaseModel.show(1234)"))
         self.assertTrue(cli.onecmd("BaseModel.destroy(1234)"))
+        self.assertTrue(cli.onecmd('BaseModel.update(1234, name, "mofor")'))
 
 
 if __name__ == '__main__':
