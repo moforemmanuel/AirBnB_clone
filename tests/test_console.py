@@ -71,6 +71,11 @@ class TestConsole(unittest.TestCase):
         cli = self.create()
         self.assertTrue(cli.onecmd("help"))
 
+    def test_default(self):
+        """default"""
+        cli = self.create()
+        self.assertTrue(cli.onecmd("BaseModel.all()"))
+
 
 if __name__ == '__main__':
     unittest.main()
