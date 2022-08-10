@@ -66,6 +66,11 @@ class TestConsole(unittest.TestCase):
         cli = self.create()
         self.assertTrue(cli.onecmd("EOF"))
 
+    def test_help(self):
+        """help"""
+        cli = self.create()
+        self.assertTrue(cli.onecmd("help"))
+
 
 if __name__ == '__main__':
     unittest.main()
