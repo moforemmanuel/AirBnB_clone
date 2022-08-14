@@ -1,0 +1,27 @@
+header {
+  /* background-color: white; */
+
+  height: 70px;
+  width: 100%;
+  border-bottom: 1px solid #CCCCCC;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  /* border: thin solid black; */
+  height: inherit;
+  margin-left: 2rem;
+}
+
+.logo .logo-img {
+  content: url("../images/icon.png");
+  height: 100%;
+}
+
+.logo .logo-text {
+  font-size: 2rem;
+  font-weight: 700;
+}
