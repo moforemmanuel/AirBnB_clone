@@ -7,10 +7,19 @@
 
 <div align="center">
 
-[![Status](https://img.shields.io/badge/status-active-success.svg)]()
-[![GitHub Issues](https://img.shields.io/github/issues/kylelobo/The-Documentation-Compendium.svg)](https://github.com/moforemmanuel/AirBnB_clone/issues)
-[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/kylelobo/The-Documentation-Compendium.svg)](https://github.com/moforemmanuel/pulls)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
+[//]: # ([![Status]&#40;https://img.shields.io/badge/status-active-success.svg&#41;]&#40;&#41;)
+
+[//]: # ([![GitHub Issues]&#40;https://img.shields.io/github/issues/kylelobo/The-Documentation-Compendium.svg&#41;]&#40;https://github.com/moforemmanuel/AirBnB_clone/issues&#41;)
+
+[//]: # ([![GitHub Pull Requests]&#40;https://img.shields.io/github/issues-pr/kylelobo/The-Documentation-Compendium.svg&#41;]&#40;https://github.com/moforemmanuel/pulls&#41;)
+
+[//]: # ([![License]&#40;https://img.shields.io/badge/license-MIT-blue.svg&#41;]&#40;/LICENSE&#41;[![Status]&#40;https://img.shields.io/badge/status-active-success.svg&#41;]&#40;&#41;)
+
+[//]: # ([![GitHub Issues]&#40;https://img.shields.io/github/issues/kylelobo/The-Documentation-Compendium.svg&#41;]&#40;https://github.com/moforemmanuel/AirBnB_clone/issues&#41;)
+
+[//]: # ([![GitHub Pull Requests]&#40;https://img.shields.io/github/issues-pr/kylelobo/The-Documentation-Compendium.svg&#41;]&#40;https://github.com/moforemmanuel/pulls&#41;)
+
+[//]: # ([![License]&#40;https://img.shields.io/badge/license-MIT-blue.svg&#41;]&#40;/LICENSE&#41;)
 
 </div>
 
