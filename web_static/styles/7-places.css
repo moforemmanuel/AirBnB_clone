@@ -1,0 +1,36 @@
+.places {
+}
+
+.places section {
+  /* display: grid;
+  grid-template-columns: minmax(10px, 1fr) 2fr;
+  column-gap: 200px;
+  row-gap: 10px; */
+  display: flex;
+  flex-basis: 390px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.places h1 {
+  text-align: left;
+  font-size: 30px;
+}
+
+.places article {
+  display: block;
+  min-width: 390px;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #FF5A5F;
+  border-radius: 4px;
+  /* height: min-content; */
+}
+
+
+.places article h2 {
+  font-size: 30px;
+  text-align: center;
+}

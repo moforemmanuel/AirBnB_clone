@@ -18,6 +18,7 @@ button {
   border: none;
   border-radius: 4px;
   margin-right: 30px;
+  justify-self: flex-end;
 }
 
 .locations, .amenities {
@@ -67,7 +68,9 @@ button {
   padding-bottom: 1rem;
   border: 1px solid #DDDDDD;
   display: none;
+  z-index: 1000;
 }
+
 
 .locations:hover .popover,
 .amenities:hover .popover {
