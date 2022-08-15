@@ -9,7 +9,7 @@
   justify-content: space-around;
 }
 
-button {
+.filters button {
   font-size: 18px;
   background-color: #FF5A5F;
   color: #FFFFFF;
@@ -21,7 +21,7 @@ button {
   justify-self: flex-end;
 }
 
-.locations, .amenities {
+.filters .locations, .filters .amenities {
   height: 100%;
   width: 25%;
   display: flex;
@@ -34,19 +34,19 @@ button {
 
 }
 
-.amenities {
+.filters .amenities {
   margin-left: -3rem;
 }
 
-.locations h3,
-.amenities h3 {
+.filters .locations h3,
+.filters .amenities h3 {
   font-weight: 600;
   margin-bottom: 0;
   /* margin-top: 5px; */
 }
 
-.locations > h4,
-.amenities > h4{
+.filters .locations > h4,
+.filters .amenities > h4{
   font-weight: 400;
   font-size: 14px;
   display: inline;
@@ -55,7 +55,7 @@ button {
 
 }
 
-.locations {
+.filters .locations {
   border-right: 1px solid #DDDDDD;
 }
 
@@ -72,8 +72,8 @@ button {
 }
 
 
-.locations:hover .popover,
-.amenities:hover .popover {
+.filters .locations:hover .popover,
+.filters .amenities:hover .popover {
   display: block;
 }
 
@@ -101,18 +101,18 @@ button {
   display: inline;
 }
 
-.locations .popover {
+.filters .locations .popover {
   margin-left: -3.33rem;
   padding-right: 12px;
 }
 
-.amenities .popover {
+.filters .amenities .popover {
   margin-left: -3.64rem;
   padding-right: 18px;
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
 
-.amenities .popover li {
+.filters .amenities .popover li {
   margin-left: 1rem;
 }
